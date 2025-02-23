@@ -15,6 +15,8 @@ public:
 
     static int SCREEN_WIDTH;
     static int SCREEN_HEIGHT;
+    static Object* HoldingObject;
+    static float HoldingObjectSize;
 public:
     static void CreateScreen();
     static bool DrawScreen(std::vector<Object*> &objects);
