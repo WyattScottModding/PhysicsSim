@@ -8,7 +8,6 @@ using namespace std;
 
 const float TerminalVelocity = 2000.0f;
 const float Bounce = 0.4f;
-const float InelasticFactor = 0.7f;
 const float DynamicFriction = 0.99f;
 const float StaticFriction = 0.95f;
 const float FrictionThreshold = 0.1f;
@@ -156,9 +155,7 @@ bool Object::CheckCollision(Object* other)
     float radiusSum = this->radius + other->radius;
     float radiusSumSquared = radiusSum * radiusSum;
 
-    // Introduce a small epsilon to prevent unwanted gaps
-    constexpr float epsilon = 5.0f;
-    return distanceSquared <= (radiusSumSquared + epsilon);
+    return distanceSquared <= radiusSumSquared;
 }
 
 
